@@ -1,0 +1,73 @@
+
+<!--
+<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="container-fluid">
+        <h2 class="form-signin-heading">Login</h2>
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password</div>
+        <br>
+        <label for="username" class="sr-only">Email address</label>
+        <input type="email" id="username" name="username" ngModel class="form-control" placeholder="User Name" required autofocus>
+        <br>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </div>
+</form>
+-->
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="assets/images/logo.jpg" width="125px">
+      </div>
+      <nav>
+        <ul id="MenuItems" *ngIf="showMenu">
+          <li><a routerLink="">Home</a></li>
+          <li><a routerLink="/products">Products</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/login">Account</a></li>
+        </ul>
+      </nav>
+      <img routerLink="/cart" src="assets/images/cart.png"  width="25px" height="25px">
+      <img src="assets/images/menu.png" class="menu-icon" (click)="showHideMenu()">
+    </div>
+  </div>
+
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="assets/images/bg.jpg" width="100%">
+            </div>
+
+            <div class="col-2" >
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span onclick="login()">Login</span>
+                        <span onclick="register()">Register</span>
+                        <hr id="Indicator">
+                    </div>
+                    <div style="margin:20px;" *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password</div>
+                    <form id="LoginForm"  #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                        <input type="text" id="username" name="username" ngModel  placeholder="Username" required autofocus>
+                        <input type="password" id="password" name="password" ngModel  placeholder="Password" required autofocus>
+                        <button type="submit" class="btn">Login</button>
+                        <a href="">Forgot password</a>
+                    </form>
+
+                    <form id="RegForm">
+                        <input type="text" placeholder="Username">
+                        <input type="email" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <button type="submit" class="btn">Register</button>
+                        <a href="">Forgot password</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body> 

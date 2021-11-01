@@ -1,0 +1,184 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Product Details</title>
+  </head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="assets/images/logo.jpg" width="125px">
+      </div>
+      <nav>
+        <ul id="MenuItems">
+          <li><a routerLink="">Home</a></li>
+          <li><a routerLink="/products">Products</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <li><a routerLink="/login">Account</a></li>
+        </ul>
+      </nav>
+      <img routerLink="/cart" src="assets/images/cart.png"  width="25px" height="25px">
+      <img src="assets/images/menu.png" class="menu-icon" onclick="menutoggle()">
+    </div>
+  </div>
+
+
+<!-- single product details-->
+
+<div class="small-container single-product">
+    <div class="row">
+        <div class="col-2">
+            <img id="ProductImg" src="assets/images/tulanh3.png" width="100%">
+        
+            <div class="small-img-row">
+                <div class="small-img-col">
+                    <img class="small-img" src="assets/images/tulanh1.png" width="100%">
+                </div>
+                <div class="small-img-col">
+                    <img class="small-img" src="assets/images/tivi2.png" width="100%">
+                </div>
+                <div class="small-img-col">
+                    <img class="small-img" src="assets/images/tulanh3.png" width="100%">
+                </div>
+                <div class="small-img-col">
+                    <img class="small-img" src="assets/images/tulanh1.png" width="100%">
+                </div>
+            </div>
+        
+        
+        
+        
+        
+        
+        </div>
+        <div class="col-2" >
+            <p>Home / Tu Lanh</p>
+            <h1>Tu lanh Toshiba</h1>
+            <h4>4.500.000</h4>
+            <select>
+                <option>Select size</option>
+                <option>70l</option>
+                <option>100l</option>
+                <option>150l</option>
+            </select>
+            <input type="number" value="1">
+            <a routerLink="/cart" class="btn">Add to cart</a>
+            <h3>Products Details <i class="fa fa-indent"></i> </h3>
+            <br>
+            <p>A product from JaPan, this products very important
+                and very usefull
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--Title-->
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>Related Products</h2>
+            <p>View more</p>
+        </div>
+    </div>
+<!--Products-->
+
+<div class="small-container">
+  <div class="row">
+    <div class="col-4">
+      <img src="assets/images/quat5.jpg">
+      <h4>Quat thong minh</h4>
+      <div class="rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+      </div>
+      <p>5.650.000</p>
+    </div>
+
+    <div class="col-4">
+      <img src="assets/images/tivi2.png">
+      <h4>Tivi LG man hinh phang</h4>
+      <div class="rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half-o"></i>
+        <i class="fa fa-star-o"></i>
+      </div>
+      <p>5.650.000</p>
+    </div>
+
+    <div class="col-4">
+      <img src="assets/images/tulanh3.png">
+      <h4>Tu lanh ToShiBa</h4>
+      <div class="rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+      </div>
+      <p>5.650.000</p>
+    </div>
+
+    <div class="col-4">
+      <img src="assets/images/quat1.jpg">
+      <h4>Quat thong minh</h4>
+      <div class="rating">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half-o"></i>
+      </div>
+      <p>5.650.000</p>
+    </div>
+  </div>
+</div>
+
+
+<!--Js for menu-->
+<script>
+  var MenuItems=document.getElementById("MenuItems");
+  MenuItems.style.maxHeight="0px";
+  function menutoggle()
+  {
+    if(MenuItems.style.maxHeight=="0px")
+    {
+      MenuItems.style.maxHeight="200px";
+    }
+    else
+    {
+      MenuItems.style.maxHeight="0px";
+    }
+  }
+</script>
+
+
+<!-- JS for product gallery-->
+<script>
+    var ProductImg=document.getElementById("ProductImg");
+    var SmallImg=document.getElementsByClassName("small-img");
+
+    SmallImg[0].onclick=function()
+    {
+        ProductImg.src=SmallImg[0].src;
+    }
+    SmallImg[1].onclick=function()
+    {
+        ProductImg.src=SmallImg[1].src;
+    }
+    SmallImg[2].onclick=function()
+    {
+        ProductImg.src=SmallImg[2].src;
+    }
+    SmallImg[3].onclick=function()
+    {
+        ProductImg.src=SmallImg[3].src;
+    }
+
+</script>
+</body>
