@@ -15,6 +15,6 @@ namespace QuanLyBanHang.Controllers
         [HttpGet]
         [Authorize] // uy quyen chi nhung ai da dang nhap moi co the truy cap
         public IEnumerable<string> Get()
-            => new string[] { "John Doe", "Jan Doe" }; 
+            => new string[] { "Nguyen Van Tung", "Tran Xuan Phuc" }; 
     }
 }
