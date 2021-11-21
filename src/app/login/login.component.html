@@ -24,11 +24,11 @@
       </div>
       <nav>
         <ul id="MenuItems" *ngIf="showMenu">
-          <li><a routerLink="">Home</a></li>
-          <li><a routerLink="/products">Products</a></li>
-          <li><a routerLink="/about">About</a></li>
-          <li><a routerLink="/contact">Contact</a></li>
-          <li><a routerLink="/login">Account</a></li>
+          <li><a routerLink="">Trang chủ</a></li>
+          <li><a routerLink="/products">Sản phẩm</a></li>
+          <li><a routerLink="/about">Thông tin</a></li>
+          <li><a routerLink="/contact">Liên hệ</a></li>
+          <li><a routerLink="/login">Đăng nhập</a></li>
         </ul>
       </nav>
       <img routerLink="/cart" src="assets/images/cart.png"  width="25px" height="25px">
@@ -47,7 +47,7 @@
                 <div class="form-container">
                     <div class="form-btn">
                         <span onclick="login()">Login</span>
-                        <span onclick="register()">Register</span>
+                        <span onclick="register()">Đăng ký</span>
                         <hr id="Indicator">
                     </div>
                     <div style="margin:20px;" *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password</div>
@@ -55,15 +55,15 @@
                         <input type="text" id="username" name="username" ngModel  placeholder="Username" required autofocus>
                         <input type="password" id="password" name="password" ngModel  placeholder="Password" required autofocus>
                         <button type="submit" class="btn">Login</button>
-                        <a href="">Forgot password</a>
+                        <a href="">Quên mật khẩu</a>
                     </form>
 
                     <form id="RegForm">
                         <input type="text" placeholder="Username">
                         <input type="email" placeholder="Email">
                         <input type="password" placeholder="Password">
-                        <button type="submit" class="btn">Register</button>
-                        <a href="">Forgot password</a>
+                        <button type="submit" class="btn">Đăng ký</button>
+                        <a href="">Quên mật khẩu</a>
                     </form>
                 </div>
             </div>

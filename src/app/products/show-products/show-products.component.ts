@@ -29,7 +29,7 @@ check!:number;
       Price:0,
       Description:""
     }
-    this.ModalTitle="Add Product";
+    this.ModalTitle="Thêm sản phẩm";
     this.ActivateAddEditProdComp=true;
   }
 
@@ -44,7 +44,7 @@ check!:number;
 {
   this.prod=item;
   console.log(item);
-  this.ModalTitle="Edit Product";
+  this.ModalTitle="Cập nhật sản phẩm";
   this.ActivateAddEditProdComp=true;
 }
 
