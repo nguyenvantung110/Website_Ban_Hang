@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
   readonly APIUrl="https://localhost:5001/api";
-
-
+  
   constructor(private http:HttpClient) { }
+  acessToken = new BehaviorSubject<string>('');
 
 
-  getProductList():Observable<any[]>
+  getProductList(token : string | null):Observable<any[]>
   {
     return this.http.get<any>(this.APIUrl+'/products/getproducts');
   }
@@ -30,5 +30,10 @@ export class SharedService {
   deleteProduct(val:any)
   {
     return this.http.delete(this.APIUrl+'/products/deleteproduct/'+val);
+  }
+
+  getUser(token : string |null):Observable<any[]>{
+    let headers = new HttpHeaders();
+    return this.http.get<any>(this.APIUrl+'/user', {"headers": new HttpHeaders().set('Authorization', 'Bearer '+ token)})
   }
 }

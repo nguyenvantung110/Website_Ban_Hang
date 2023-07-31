@@ -13,7 +13,8 @@ import { ShowProductsComponent } from './products/show-products/show-products.co
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'',component:HomeComponent},
-  {path:'cart',component:CartComponent},
+  // {path:'cart',component:CartComponent},
+  {path:'user',component:CartComponent},
   {path:'about',component:AboutComponent},
   {path:'contact',component:ContactComponent},
   {path:'products',component:ProductsComponent},

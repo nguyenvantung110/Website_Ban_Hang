@@ -28,11 +28,12 @@ ProductList:any=[];
 
   totalLength!:any;
   page:number=1;
-  
+  token!:string | null;
 
 
   getProdList(){
-    this.service.getProductList().subscribe(data=>{
+    this.token = localStorage.getItem('jwt');
+    this.service.getProductList(this.token).subscribe(data=>{
       this.ProductList=data;
       this.totalLength=data.length;
     });

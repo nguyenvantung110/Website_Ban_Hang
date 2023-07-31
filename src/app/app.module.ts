@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 
 import { CartComponent } from './cart/cart.component';
@@ -18,6 +18,7 @@ import { ShowProductsComponent } from './products/show-products/show-products.co
 import { AddEditProductComponent } from './products/add-edit-product/add-edit-product.component';
 import { SharedService } from './shared.service';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  providers: [SharedService],
+  providers: [SharedService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

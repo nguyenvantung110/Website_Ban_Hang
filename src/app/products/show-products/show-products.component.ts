@@ -61,7 +61,7 @@ deleteClick(item:any)
 }
 
   refreshProdList(){
-    this.service.getProductList().subscribe(data=>{
+    this.service.getProductList('').subscribe(data=>{
       this.ProductList=data;
     });
   }

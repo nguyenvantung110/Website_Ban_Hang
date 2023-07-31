@@ -22,7 +22,7 @@ ProductList!:any[];
   }
   loadProduct()
   {
-      this.service.getProductList().subscribe((data:any)=>{
+      this.service.getProductList('').subscribe((data:any)=>{
       this.ProductList=data;
 
       this.ProductId=this.prod.productId;
