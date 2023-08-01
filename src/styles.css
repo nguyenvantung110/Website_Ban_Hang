@@ -25,6 +25,7 @@ nav ul li{
 a{
     text-decoration: none;
     color:#555;
+    cursor: pointer;
 }
 p{
     color:#555;
@@ -511,8 +512,90 @@ td img{
     margin-right: 10px;
 }
 
+.modal-open .modal{
+    z-index: 1050;
+}
 
+.modal-backdrop{
+    width: 1920px;
+    min-height: 937px;
+    height: 100vh;
+    max-height: 969px;
+}
+.modal{
+    width: 1920px;
+    min-height: 937px;
+    height: 100vh;
+    max-height: 969px;
+}
 
+.modal-open {
+    overflow: auto;
+}
 
+.modal{
+    width: 1920px;
+    min-height: 937px;
+    height: 100vh;
+    max-height: 969px;
+    position: absolute;
+}
 
+.show{
+    z-index: 1070 !important;
+}
 
+.modal{
+    z-index: 1071;
+}
+
+.modal-header {
+    background-color: #1CCE82;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    font-size: 18px;
+}
+
+.modal-content {
+border-radius: 10px !important;
+border: 0px !important;
+}
+
+.close{
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 0;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    width: 27px;
+    height: 27px;
+    text-align: center;
+}
+
+.title-dialog {
+    font-weight: bold;
+}
+
+.box-msg-mdh{
+    display: flex;
+    min-height: 130px;
+}
+
+.btn-cancel {
+    margin-right: 15px;
+    background-image: url('./assets/images/btn_teloow.png');
+}
+
+.btn-no {
+    margin-right: 15px;
+    background-image: url('./assets/images/btn_red.png');
+}
