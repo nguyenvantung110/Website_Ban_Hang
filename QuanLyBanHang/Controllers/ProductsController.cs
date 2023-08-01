@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuanLyBanHang.Data;
@@ -24,12 +25,13 @@ namespace QuanLyBanHang.Controllers
 
         // Get san pham
         [HttpGet("GetProducts")]
+        [Authorize]
         public IActionResult Get()
         {
 
             try
             {
-                var products = _context.Products.ToList();
+                var products = _context.Product.ToList();
                 if(products.Count==0)
                 {
                     return StatusCode(404,"Product was not found");
@@ -37,7 +39,7 @@ namespace QuanLyBanHang.Controllers
                 return  Ok(products);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return  StatusCode(500,"An error has occurred ");
             }
@@ -51,12 +53,12 @@ namespace QuanLyBanHang.Controllers
             product.ProductId =request.ProductId;
             product.ProductName = request.ProductName;
             product.Price = request.Price;
-            product.Description = request.Description;
+            product.ProductDescpt = request.Description;
 
             try
             {
                 // Products is DbSet
-                _context.Products.Add(product);
+                _context.Product.Add(product);
                 _context.SaveChanges();
 
             }
@@ -66,7 +68,7 @@ namespace QuanLyBanHang.Controllers
             }
 
             //Get all product
-            var products = _context.Products.ToList();
+            var products = _context.Product.ToList();
             return Ok(products);
         }
 
@@ -77,7 +79,7 @@ namespace QuanLyBanHang.Controllers
            
             try
             {
-                var product = _context.Products.FirstOrDefault(x => x.ProductId ==request.ProductId);
+                var product = _context.Product.FirstOrDefault(x => x.ProductId ==request.ProductId);
                 if (product == null)
                 {
                     return StatusCode(404, "Product was not found");
@@ -86,7 +88,7 @@ namespace QuanLyBanHang.Controllers
                 
                 product.ProductName = request.ProductName;
                 product.Price =request.Price;
-                product.Description = request.Description;
+                product.ProductDescpt = request.Description;
 
                 _context.Entry(product).State = EntityState.Modified;
                 _context.SaveChanges();
@@ -97,7 +99,7 @@ namespace QuanLyBanHang.Controllers
             }
 
             //Get all product
-            var products = _context.Products.ToList();
+            var products = _context.Product.ToList();
             return Ok(products);
         }
 
@@ -107,7 +109,7 @@ namespace QuanLyBanHang.Controllers
         {
             try
             {
-                var product = _context.Products.FirstOrDefault(x => x.ProductId == Id);
+                var product = _context.Product.FirstOrDefault(x => x.ProductId == Id);
                 if (product == null)
                 {
                     return StatusCode(404, "Product was not found");
@@ -122,7 +124,7 @@ namespace QuanLyBanHang.Controllers
             }
 
             //Get all product
-            var products = _context.Products.ToList();
+            var products = _context.Product.ToList();
             return Ok(products);
         }
 

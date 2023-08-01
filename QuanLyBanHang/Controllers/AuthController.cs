@@ -26,11 +26,14 @@ namespace QuanLyBanHang.Controllers
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
+                var claims = new List<Claim>();
+                claims.Add( new Claim("username","TungNV") );
+                claims.Add( new Claim( "role", "admin" ) );
 
                 var tokenOptions = new JwtSecurityToken(
                     issuer: "https://localhost:5001",
                     audience: "https://localhost:5001",
-                    claims: new List<Claim>(),
+                    claims: claims,
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: signingCredentials
                     );
