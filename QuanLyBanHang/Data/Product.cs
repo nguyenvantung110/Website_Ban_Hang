@@ -18,7 +18,7 @@ namespace QuanLyBanHang.Data
         public int Price { get; set; }
         [Required]
         [StringLength(100)]
-        public string Description { get; set; }
-        public string FileName { get; set; }
+        public string ProductDescpt { get; set; }
+        public string ProductFileName { get; set; }
     }
 }
