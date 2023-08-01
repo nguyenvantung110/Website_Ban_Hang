@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http'
 import { NgForm } from '@angular/forms';
 import { SharedService } from '../shared.service';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent  implements OnInit{
 
   }
  
-  constructor(private router:Router,private http:HttpClient, private service : SharedService) {
+  constructor(private router:Router,private http:HttpClient, private service : SharedService, private jwtService : JwtHelperService) {
 
    }
 

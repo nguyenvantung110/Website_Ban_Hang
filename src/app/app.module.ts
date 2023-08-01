@@ -19,7 +19,14 @@ import { AddEditProductComponent } from './products/add-edit-product/add-edit-pr
 import { SharedService } from './shared.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
-
+import { JwtModule } from "@auth0/angular-jwt";
+import { UserComponent } from './user/user.component';
+import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
+import { BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { ActionReducerMap, StoreModule } from '@ngrx/store';
+import { IAppState } from './shared/services/loading.service';
+export const appReducers: ActionReducerMap<IAppState, any> = {}
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +39,7 @@ import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
     ProductDetailsComponent,
     ShowProductsComponent,
     AddEditProductComponent,
+    UserComponent,
 
   ],
   imports: [
@@ -40,11 +48,32 @@ import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["example.com"],
+        disallowedRoutes: ["http://example.com/examplebadroute/"],
+      },
+    }),
+    ModalModule.forRoot(),
+    PopoverModule.forRoot(),
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.circleSwish,
+      fullScreenBackdrop: true,
+      primaryColour: '#1CCE82',
+      secondaryColour: '#1CCE82',
+      tertiaryColour: '#1CCE82'
+  }),
+  StoreModule.forRoot(appReducers),
   ],
   providers: [SharedService,
+    BsModalRef,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}

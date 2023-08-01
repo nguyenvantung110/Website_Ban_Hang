@@ -33,7 +33,6 @@ export class SharedService {
   }
 
   getUser(token : string |null):Observable<any[]>{
-    let headers = new HttpHeaders();
-    return this.http.get<any>(this.APIUrl+'/user', {"headers": new HttpHeaders().set('Authorization', 'Bearer '+ token)})
+    return this.http.get<any>(this.APIUrl+'/user')
   }
 }
